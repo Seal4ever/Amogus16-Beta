@@ -1,5 +1,6 @@
 # Amogus16
-Amogus16 is a untethered jailbreak for iOS 15 - 16.2.  
+Amogus16 is a untethered jailbreak for iOS 15 - 16.2.
+This is a modded Fugu15 and some exploits has been changed
 
 # Important Note!
 This jailbreak cannot be untethered on ios 16
