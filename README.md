@@ -1,18 +1,19 @@
-# Fugu15
-Fugu15 is a semi-untethered permasigned jailbreak for iOS 15.  
-It contains a code-signing bypass, kernel exploit, kernel PAC bypass and PPL bypass.  
-Additionally, it can be installed via Safari, i.e. a computer is not required, except for a Web Server that hosts Fugu15.  
-Please note that Fugu15 does not support tweaks (no tweak injection library).
+# Amogus16
+Amogus16 is a untethered jailbreak for iOS 15 - 16.2.  
 
-# Tested Devices and iOS Versions
-- iPhone Xs Max: iOS 15.4.1
-- iPhone 11 (SRD): iOS 15.4.1
-- iPhone 12 (SRD): iOS 15.4.1
-- iPhone 12 Pro Max: iOS 15.4.1
-- iPhone 13: iOS 15.1 (offline edition - see bugs below [WiFi bug])
+# Important Note!
+This jailbreak cannot be untethered on ios 16
+USE ONLY IF YOU REALY NEED THIS
+THERE IS A RISK TO BRICK YOUR DEVICE!
 
-Other devices are probably supported as well.  
-Non-arm64e devices are not supported.
+# Supported Devices and iOS Versions
+- iPhone X: iOS 16.2
+- iPhone 11: iOS 15.7
+- iPhone 12: iOS 15.6
+- iPhone 12 Pro: iOS 16.1.2
+- iPhone 13: Not supported now
+
+Other devices are NOT supported.
 
 # Building
 Prerequisites:  
@@ -20,15 +21,15 @@ Prerequisites:
 2. Import the fastPath arm certificate (`Exploits/fastPath/arm.pfx`) into your Keychain (double click on the file). The password is "password" (without quotes)
 3. You need a validly signed copy of Apple's Developer App from the AppStore (with DRM!). Copy the IPA to `Server/orig.ipa`. Note that if you would like to use a different AppStore App you will need to get it's Team ID and add `TEAMID=<the App's Team ID>` to all `make` commands
 
-Now you can simply run `make` to build Fugu15 (internet connection required to download dependencies).  
+Now you can simply run `make` to build Amogus16 (internet connection required to download dependencies).  
 Please note that you will be asked to grant "fastPathSign" access to the Keychain item "privateKey" (the private key of the fastPath certificate). Enter your password and select "Always allow".
 
 ## Building Tools
-Building Fugu15 requires multiple Tools which can be found in the `Tools` directory. Building them is entirely optional because I've already compiled them.  
+Building Amogus15 requires multiple Tools which can be found in the `Tools` directory. Building them is entirely optional because I've already compiled them.  
 If you want to build them yourself, simply run `make` in the `Tools` directory.
 
 # Installing
-There are two ways to install Fugu15 on your device: Via Safari or via USB
+There are two ways to install Amogus16 on your device: Via Safari or via USB
 
 ## Installing via Safari
 To install Fugu15 via Safari, do the following (requires you to own a domain):  
@@ -41,11 +42,11 @@ To install Fugu15 via Safari, do the following (requires you to own a domain):
 7. Visit `https://<your domain>` on your iPhone and follow the instructions
 
 ## Installing via USB
-1. Install `Fugu15_Developer.ipa`, e.g. via `ideviceinstaller -i Fugu15_Developer.ipa`. Alternatively, install Fugu15/Fugu15.ipa via TrollStore.
+1. Install `Fugu15_Developer.ipa`, e.g. via `ideviceinstaller -i Amogus16_Developer.ipa`. Alternatively, install Amogus16/Amogus16.ipa via TrollStore.
 2. Open the newly installed "Developer" App (or whatever AppStore App you used) on your iPhone
 
 # iDownload
-Like all Fugu jailbreaks, Fugu15 ships with iDownload. The iDownload shell can be accessed on port 1337 (run `iproxy 1337 1337 &` and then `nc 127.1 1337` to connect to iDownload).  
+Like all Fugu jailbreaks, Amogus16 ships with iDownload. The iDownload shell can be accessed on port 1337 (run `iproxy 1337 1337 &` and then `nc 127.1 1337` to connect to iDownload).  
 Type `help` to see a list of supported commands.  
 The following commands are especially useful:
 - `r64/r32/r16/r8 <address>`: Read a 64/32/16/8 bit integer at the given kernel address. Add the `@S` suffix to slide the given address or `@P` to read from a physical address.
@@ -54,9 +55,7 @@ The following commands are especially useful:
 - `tcload <path to TrustCache>`: Load the given TrustCache into the kernel
 
 # Procursus Bootstrap and Sileo
-Fugu15 also ships with the procursus bootstrap and Sileo. Run the `bootstrap` command in iDownload to install both. Afterwards, you might have to respring to force Sileo to show up on the Home Screen (`uicache -r`).
-
-Procursus is installed into the `/private/preboot/jb` directory and `/var/jb` is a symlink to it.
+Procursus bootstrap and sileo will work, but NO tweaks
 
 # Known Issues/Bugs
 1. If oobPCI (the process exploiting the kernel) exits, the system might be left in an inconsistent state and panic at some point. This usually occurs about 5 seconds after running the `exit_full` command in iDownload.  
@@ -67,17 +66,17 @@ Workaround: This bug will not occur when quitting oobPCI. However, the bug descr
 Workaround: Disable WiFi.
 
 # FAQ
-Q: I'm an end user. Is Fugu15 useful to me?  
+Q: I'm an end user. Is Amogus16 useful to me?  
 A: No.  
 
 Q: My iOS version/device is not supported by Fugu15, will you add support for it?  
-A: No. (I'm done with iOS 15)  
+A: Yes but later . 
 
 Q: Will you ever add support for tweak injection?  
-A: No.  
+A: no and no.
 
-Q: Do you provide official support for Fugu15? Are any updates planned?  
-A: No.  
+Q: Do you provide official support for Amogus16? Are any updates planned?  
+A: Yes.
 
 Q: I installed/updated something through Sileo but it won't launch. How can I fix that?  
 A: Fugu15 uses TrustCache injection to bypass code signing. Therefore, if you install or update something, it's code signature must be in a TrustCache. You can load additional TrustCaches from the iDownload shell via the `tcload` command.  
